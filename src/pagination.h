@@ -49,7 +49,7 @@ public:
 
     int getCurrentPageIndex() const;
 
-signals:
+Q_SIGNALS:
     void pageIndexChanged(int index);
 
 protected:

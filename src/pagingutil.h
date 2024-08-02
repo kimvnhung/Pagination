@@ -33,7 +33,7 @@ public:
 
     int getPageSize() const;
 
-signals:
+Q_SIGNALS:
     void numberArraySizeChanged();
     void numbersChanged();
     void numberSelectChanged();
