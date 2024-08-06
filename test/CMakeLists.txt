@@ -14,7 +14,9 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 
 add_executable(${PROJECT_NAME} WIN32
     main.cpp
-
+    mainwindow.h
+    mainwindow.cpp
+    mainwindow.ui
     paginationtest.h
     paginationtest.cpp
     paginationtest.ui
