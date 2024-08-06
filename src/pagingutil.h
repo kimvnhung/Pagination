@@ -23,7 +23,7 @@ public:
 
     bool isSelectedNumber(int number) const;
 
-    const QList<int>& getCurCacheNumbers() const {
+    QList<int> getCurCacheNumbers() const {
         return curCacheNumbers;
     }
 
