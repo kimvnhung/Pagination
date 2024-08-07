@@ -10,7 +10,7 @@ class Pagination : public QFrame {
 
     Q_PROPERTY(int spacing READ getBoxSpacing WRITE setBoxSpacing)
     Q_PROPERTY(int totalsize READ getTotalSize WRITE setTotalSize)
-    Q_PROPERTY(int sizeofperpage READ getSizeofPerPage WRITE setSizeofPerPage)
+    Q_PROPERTY(int sizeofperpage READ getDisplaySize WRITE setDisplaySize)
 
     Q_PROPERTY(QString pageUpText READ getPageUpText WRITE setPageUpText)
     Q_PROPERTY(QString pageDownText READ getPageDownText WRITE setPageDownText)
@@ -25,8 +25,8 @@ public:
     int getTotalSize() const;
     void setTotalSize(int size);
 
-    int getSizeofPerPage() const;
-    void setSizeofPerPage(int size);
+    int getDisplaySize() const;
+    void setDisplaySize(int size);
 
     bool isPageUpEnabled() const;
 

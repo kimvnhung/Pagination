@@ -3,7 +3,7 @@
 PagingUtil::PagingUtil(QObject* parent)
     : QObject(parent)
     , totalSize(10)
-    , sizeofPerPage(2)
+    , displaySize(2)
     , curSelectNumber(1)
 {
 
@@ -14,7 +14,7 @@ PagingUtil::~PagingUtil() {
 
 PagingUtil &PagingUtil::operator=(const PagingUtil &other) {
     this->totalSize = other.totalSize;
-    this->sizeofPerPage = other.sizeofPerPage;
+    this->displaySize = other.displaySize;
     this->curSelectNumber = other.curSelectNumber;
     return *this;
 }
@@ -28,13 +28,13 @@ void PagingUtil::setTotalSize(int size) {
     pre2ReCacheNumbers();
 }
 
-int PagingUtil::getSizeofPerPage() const {
-    return sizeofPerPage;
+int PagingUtil::getDisplaySize() const {
+    return displaySize;
 }
 
-void PagingUtil::setSizeofPerPage(int size) {
+void PagingUtil::setDisplaySize(int size) {
     Q_ASSERT(size > 0);
-    sizeofPerPage = size;
+    displaySize = size;
     pre2ReCacheNumbers();
 }
 
@@ -43,7 +43,7 @@ void PagingUtil::numberSelected(int number) {
     if (number < 1) {
         return;
     }
-    if (number > getPageSize()) {
+    if (number > getTotalSize()) {
         return;
     }
 
@@ -54,14 +54,6 @@ void PagingUtil::numberSelected(int number) {
 
 bool PagingUtil::isSelectedNumber(int number) const {
     return curSelectNumber == number;
-}
-
-int PagingUtil::getPageSize() const {
-    int pageSize = 1;
-    if (totalSize != 0) {
-        pageSize = (totalSize - 1) / sizeofPerPage + 1;
-    }
-    return pageSize;
 }
 
 void PagingUtil::pre2ReCacheNumbers() {
@@ -76,9 +68,9 @@ void PagingUtil::pre2ReCacheNumbers() {
     emit numbersChanged();
 
     //check select number when total size changed
-    auto pageSize = getPageSize();
-    if (curSelectNumber > pageSize) {
-        curSelectNumber = pageSize;
+    auto totalSize = getTotalSize();
+    if (curSelectNumber > totalSize) {
+        curSelectNumber = totalSize;
         emit numberSelectChanged();
     }
 }

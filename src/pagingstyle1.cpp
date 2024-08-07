@@ -4,7 +4,7 @@ void PagingStyle1::reCacheNumbers() {
     
     curCacheNumbers.clear();
 
-    int pageSize = getPageSize();
+    int pageSize = getDisplaySize();
 
     if (pageSize < 10) {
         for (int i = 0; i < pageSize; i++) {

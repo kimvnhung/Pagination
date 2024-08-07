@@ -53,9 +53,9 @@ void PaginationTest::reloadListView() {
     model->clear();
 
     int currentPageIndex = ui.pagination_3->getCurrentPageIndex();
-    int pageOffset = currentPageIndex * ui.pagination_3->getSizeofPerPage();
+    int pageOffset = currentPageIndex * ui.pagination_3->getDisplaySize();
 
-    for (int i=0; i<ui.pagination_3->getSizeofPerPage(); i++) {
+    for (int i=0; i<ui.pagination_3->getDisplaySize(); i++) {
         model->appendRow(new QStandardItem(QString("item %1").arg(pageOffset + i + 1)));
     }
 }

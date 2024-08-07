@@ -50,13 +50,13 @@ void Pagination::setTotalSize(int size) {
     pagingStyle->setTotalSize(size);
 }
 
-int Pagination::getSizeofPerPage() const {
-    return pagingStyle->getSizeofPerPage();
+int Pagination::getDisplaySize() const {
+    return pagingStyle->getDisplaySize();
 }
 
-void Pagination::setSizeofPerPage(int size) {
+void Pagination::setDisplaySize(int size) {
     Q_ASSERT(size > 0);
-    pagingStyle->setSizeofPerPage(size);
+    pagingStyle->setDisplaySize(size);
 }
 
 bool Pagination::isPageUpEnabled() const {
@@ -132,7 +132,7 @@ void Pagination::pageFirst() {
 }
 
 void Pagination::pageLast() {
-    pagingStyle->numberSelected(pagingStyle->getPageSize());
+    pagingStyle->numberSelected(pagingStyle->getTotalSize());
 }
 
 int Pagination::getCurrentPageIndex() const {

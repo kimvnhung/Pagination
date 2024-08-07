@@ -14,8 +14,8 @@ public:
     int getTotalSize() const;
     void setTotalSize(int size);
 
-    int getSizeofPerPage() const;
-    void setSizeofPerPage(int size);
+    int getDisplaySize() const;
+    void setDisplaySize(int size);
 
     void numberSelected(int number);
 
@@ -31,8 +31,6 @@ public:
         return curSelectNumber;
     }
 
-    int getPageSize() const;
-
 Q_SIGNALS:
     void numberArraySizeChanged();
     void numbersChanged();
@@ -42,7 +40,7 @@ protected:
     //total data size
     int totalSize;
     //max number of pages to display
-    int sizeofPerPage;
+    int displaySize;
     //current selected number value
     int curSelectNumber;
 
